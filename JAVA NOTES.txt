@@ -1,0 +1,2498 @@
+ INTRODUCTION OF JAVA
+=====================
+	
+	JAVA							C/C++
+
+Platform independent				Platform dependent
+Run multiple application at a time		Run one application at a time
+Eg- Android mobile				Eg-basic mobile
+
+
+Main features of JAVA:
+======================
+
+Open source--> source code is available with free of cost
+
+platform independent---> Supports all platforms like Windows,Linux,Mac etc.,
+
+Multithreading ---> Multiple process can done at single time (Eg:- In Android mobile, we can call and also we use another applications like whatsapp, fb etc.,)
+
+Portable ----> we can access the source code from one platform to another platform
+
+More secure ----> Due to encryption/decryption code, hackers are not able to hack.
+	    ---->It will create  a firewall between local machine to Java.
+
+
+Main Tools
+==========
+1.Notepad
+2.Eclipse
+3.Net beans
+4.Jdevelopers-->Oracle Company
+5.RAD--> IBM
+
+	1,2,3---> Free & Open Source
+	4&5 --->Paid
+
+
+BASICS OF JAVA
+==============
+
+1. How to install JAVA?
+
+=> Check JAVA version----> Windows===> Run===>cmd===> (type)Java-version
+
+=> In Google Chrome---->(type)Java 1.8 jdk===> 1st link===>create account===>Windows 64(download)
+
+			JAVA version -->1.0 to 1.18
+			For testing---> 1.7/1.8
+
+2.How to install Eclipse?
+
+=>In Google Chrome----> (type)Eclipse download===> 1st link===>  Eclipse IDE for Eclipse Committers(download)
+
+			Eclipse version--> Juno,Kepler,Luna,Mars,Neon.Oxygen,Photon
+			latest version--->Photon
+			we use--->Oxygen 3a
+
+	JDK=JRE+JVM
+
+Whenever we want to run or develop a program in java, JDK is essential.
+
+JDK=> JAVA Development Kit
+JRE=> JAVA Runtime Environment  
+JVM=> JAVA Virtual Machine
+
+JVM
+===
+
+=> 3 execution phase
+	1. Written--> to write a program
+	2. Compile--> To convert Source code to Byte code
+	3. Run--> Testing
+
+
+JRE
+===
+
+=> For compile and run the program, we need to install JRE.
+=>JRE had JAVAC Compiler, which is used to compile the source code to byte code
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+
+INTRODUCTION OF OOPS
+====================
+
+
+1.OOPS
+=======
+
+=> OOPS--> Object Oriented Programming Structure
+=> A method of implementation in which a program is organised as a collection of objects, class & methods.
+
+
+2.Objects
+==========
+=> Used to allocate a memory at a run time.
+=>Helps to call the methods.
+
+
+3.Methods
+==========
+=> Set of actions to be performed.
+=> Business logic is written inside the method.
+
+4.Class
+========
+=> A collection of objects and methods.
+ 
+
+4 pillars of OOPS
+==================
+Abstraction
+Inheritance
+Polymorphism
+Encapsulation
+
+
+Coding Standards
+=================
+
+1. Pascal notation/ Initcap notation
+====================================
+=> 1st character of every word should be capital/Uppercase.
+=> Project creation and class name should follow this notation.
+
+
+2. Camel notation
+=================
+=> 1st word should be in Lowercase and remaining word 1st character should be in Uppercase.
+=> Object creation and method creation should follow this notation.
+
+
+STEPS TO CREATE A PROGRAM IN ECLIPSE
+=====================================
+
+1. Project Creation
+	new--> Java Project---> ProjectName(Pascal Notation).
+
+2. Package Creation
+	ProjectName===>src(Right Click)---> new---> package---> package name (org. packagename)
+
+3. Class Creation
+	Package name(Right Click)---> new--->Class---> ClassName(Pascal Notation).
+
+4.Method Creation
+
+	Inside the class name, the method will be created.
+	Inside the method, Buisness Logic will be created.
+
+5.Main Method Creation
+
+	Used to run JAVA application for our program
+
+6.Object Creation
+	Used to create a object for allocating memory and to call methods using objects.
+	       		
+	SYNTAX: ClassName objectName = new ClassName();
+
+7.Method Calling
+
+	SYNTAX: objectName.methodName();
+
+8.Run
+	(Right Click)Run As-->JAVA Application
+
+9.Output
+
+
+NOTES:
+=======
+1.System.out.println()
+	System--->Final class present in java.lang package.
+	out--->Instance of PrintStream type, which is public and static field of System class.
+	println()--->All instance of printStream class which print new line.
+
+2.public static void main(String[]args)
+	public--->1.Access modifier, specified where and who can access the method.
+	          2.Making the main method() as public because JVM can invoke it from outside the class as it is not present in the current class.
+
+	static--->1.keyword
+		  2. Making main method() as static because JVM can invoke it without instantiating the class.
+		  3.It also saves the unwanted wastage of memory which is used by object declared only for calling main method() from JVM.
+
+	void --->1.keyword used to specify that method doesnot return anything.
+		 2. If the return type is void, main method terminates itself and also Java program terminates too.
+		 3.JVM cannot do anything with that return value.
+
+	main --->1.Identifier
+		 2.It is the name of the Java main methohd.
+
+	String--->1.It stores java command line arguments and is an array type of java.lang.String class.
+
+
+for suggestions
+================
+=> ctrl+space release +Enter
+=> Window--->Show View---> Project Explorer
+=> println();---> print new line
+=>print();---> print the same line
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+
+				
+SAME PACKAGE & DIFFERENT PACKAGE
+				=================================
+
+1.Access one class property into another class within same package
+----------------------------------------------------------------
+
+=> By creating an object of another class, then call method of that class.
+	
+		
+		Eg- package org.samepackage;					//package name
+
+			public Class A{						//A- class name
+			public void employee(){					//employee- method name
+				System.out.println("empID");			// buisness logic		
+				}
+			}
+		-----------------*------------------------------
+			package org.samepackage;				//package name
+
+			public Class B{						//B- class name
+			public void client(){					// client- method name
+				System.out.println("Client ID");		// buisness logic
+				}
+
+			public static void main(String[] args{			// main method
+				B cl=new B();					// object creation for class B
+				cl.client();					// method calling for class B
+				
+				A emp = new A();				// object creation for class A
+				emp.employee();					// method calling for class A
+			}
+			}
+		------------------------------------------------
+
+
+		OUTPUT
+		======
+			Client ID
+			empID
+
+2.Access one class property into another class with different package
+-------------------------------------------------------------------
+=> By using "import" statement , we can access another class property in different package.
+
+		SYNTAX
+		=======
+			import packagename.classname;
+				(or)
+			import  packagename.*;			
+
+	Where "*" denotes accessing all classes in that package
+
+
+	
+		Eg- package org.samepackage;					//package name
+
+			public Class A{						//A- class name
+			public void employee(){					//employee- method name
+				System.out.println("empID");			// buisness logic		
+				}
+			}
+		-----------------*------------------------------
+			package org.differentpackage;				//package name
+			import org.samepackage.A;				// import statement
+
+			public Class B{						//B- class name
+			public void client(){					// client- method name
+				System.out.println("Client ID");		// buisness logic
+				}
+
+			public static void main(String[] args{			// main method
+				B cl=new B();					// object creation for class B
+				cl.client();					// method calling for class B
+				
+				A emp = new A();				// object creation for class A
+				emp.employee();					// method calling for class A
+			}
+			}
+		------------------------------------------------
+
+
+		OUTPUT
+		======
+			Client ID
+			empID
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+
+					DATA TYPES
+					===========
+
+
+=> It specifies the size & type of the variable.
+=>Input has multiple range. so, we have many data types
+
+	DATA TYPES			SIZE(Byte)		Wrapper class
+	
+	byte				1			Byte
+	short				2			Short				// Numeric Data types
+	int				4			Integer
+	long				8			Long
+	------------------------------------------------------------------
+
+	float				4			Float				
+	double				8			Double
+	-------------------------------------------------------------------
+
+	char				-			Character
+	string				-			String				//String-- Non-primitive data types
+	boolean				-			Boolean
+
+Range Calculating formula
+--------------------------
+	1 byte = 8 bit
+	2 byte	 16 bit
+
+byte= -(2^(n-1)) to (2^(n-1)-1)
+
+	n--> Number of Bits
+
+byte 	-128 to +127
+short	-32768 to +32767
+
+
+Variable
+=========
+=> used to store values and name of the memory location.
+	
+	Format
+	------
+		Datatype variablename = values;
+
+        Eg-	int	       a      =  10;
+
+Some important points
+----------------------
+1.byte b =127;//valid or byte b=128;//not valid 
+
+2.long f= 1234567890122l; where assigning values "l" must be given & best example for long is "Mobile number, Bank account number etc.,"
+
+3.float d= 1234.5678901f; where assigning values "f" must be given & it takes only 5 digits after dot.
+
+4.double d= 1234.56789012345678; need not give "d" for double.
+
+5.char d='w' or'A' or'1' or '*'; character must be one letter within single quotes('')
+
+6.string d="welcome"; String must be a word or a sentence within doublw quotes("")
+
+7.boolean b="true" or "false"; Boolean helps to compare the values or strings present or not.
+
+Concatenation
+=============
+=> The symbol '+' plus sign is used in string variables, it will be merged called as concatenation.
+	
+		Eg- 	int a=1,b=2;
+			sum=a+b;					//+ doing addition
+			System.out.println("sum of 1 & 2 is" +sum);	// + doing concatenation
+			System.out.println("String" +b+100);		// + doing concatenation
+
+			output
+			======
+			sum of 1 & 2 is 3
+			String 2100
+
+Wrapper Class
+==============
+=> Class of the data type.
+=>Used to convert data type into object.
+=>All classes and wrapper class default value is NULL.
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+
+					SCANNER
+					========
+
+=> It is a pre-defined class which is present in the package "java.util".
+=> It is used to get the input from the user at a run time.
+=> Default package of java is "java.lang".
+=> Eg- facebook, instagram, email etc.,
+
+	SYNTAX
+	=======
+		Scanner referenceName = new Scanner(System.in);
+		referenceName.Scannermethods();
+
+Scanner Methods --->ctrl+2 release +l
+---------------
+1.nextByte();
+2.nextShort();
+3.nextInt();
+4.nextLong();
+5.nextFloat();
+6.nextDouble();
+7.next();			
+8.nextLine();
+9.nextBoolean();
+
+=>Character has no return type.
+
+		 Difference between next() and nextLine()
+
+			Eg- Anna University
+
+=>Ignores the space.	next()--->Anna
+
+=>Accepts the space.	nextLine()---> Anna University
+
+program:
+--------
+package org.employee;
+public class Employee{
+	public static void main(String[]args){
+		Scanner s=new Scanner(System.in);
+
+		System.out.println("Enter age:");
+		byte ID=s.nextByte();
+	
+		System.out.println("Enter ID:);
+		int Id=s.nextInt();
+
+		System.out.println(ID);
+		System.out.println(age);		
+		}
+		}
+output
+======
+Enter age:
+26		//we enter
+Enter ID:
+1234		//we enter
+
+26
+1234
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+				INHERITANCE
+				============
+
+
+=> we can access one class property from another class using keyword "extends".
+=> we can reuse the code
+				
+	RAM--->Inside RAM(JVM present)---> Inside JVM (Heap Memory present)---> Inside Heap memory--> objects stored
+
+=>By using only one objects leads to reduction of Memory wastage.
+=>In Inheritance, object will store in Heap memory.
+				
+
+Types of Inheritance
+=====================
+
+1.Single Inheritance
+---------------------
+=>Combinations of one parent class & one child class.
+
+	
+	parent class-------> child class
+
+
+		program:
+		--------
+PARENT CLASS/BASE CLASS/SUPER CLASS
+
+			package org.samepackage;					//package name
+
+			public Class A{						//A- class name
+			public void employee(){					//employee- method name
+				System.out.println("empID");			// buisness logic		
+				}
+			}
+		-----------------*------------------------------
+CHILD CLASS/DERIVER CLASS/ SUB CLASS
+
+			package org.samepackage;				//package name
+			
+			public Class B extends A{				//B- class name
+			public void client(){					// client- method name
+				System.out.println("Client ID");		// buisness logic
+				}
+
+			public static void main(String[] args{			// main method
+				B cl=new B();					// object creation for class B
+				cl.client();					// method calling for class B
+				cl.employee();					//method calling for class A
+			}
+			}
+		------------------------------------------------
+
+
+		OUTPUT
+		======
+			Client ID
+			empID
+
+2.Multilevel Inheritance
+-------------------------
+=>Combinations of one child class and more than one parent class at a tree level structure.
+
+
+	child class<---parent class<---grandparent class
+	
+
+		program
+		-------
+			package org.samepackage;				//package name
+
+			public class A{						//A- class name
+			public void employee(){					//employee- method name
+				System.out.println("empID");			// buisness logic		
+				}
+			}
+		-----------------*------------------------------
+
+			package org.samepackage;				//package name
+			
+			public class B extends A{				//B- class name
+			public void client(){					// client- method name
+				System.out.println("Client ID");		// buisness logic
+				}
+			}
+		------------------------------------------------
+
+			package org.samepackage;				//package name
+			
+			public class C extends B{				// C - class name
+			public void company(){					//company- method name
+				System.out.println("Company Name");		//Buisness Logic
+			}
+			public static void main(String[]args){			//main method
+			
+			C object= new C();					//object creation
+			object.company();					//method calling 
+			object.client();					//method calling
+			object.employee();					//method calling
+			}
+			}
+		------------------------------------------------------
+		output
+		======
+		Company Name
+		Client ID
+		empID
+
+
+
+3.Multiple Inheritance
+-----------------------
+=> Combinations of one child class and more than one parent class accessed parallely at a run time.
+=>Java doesn't support multiple inheritance 
+	Reason:
+	-------
+	1. Priority error-> Doesn't know whom to give priority.
+	2. Syntax error.
+=> Multiple Inheritance is achieved in JAVA only using "Interface concept".
+
+	parent class1---->child class<---parent class2
+
+
+4.Hierarchy Inheritance
+------------------------
+=>combination of One parent class and more than one child class.
+
+			    child class3
+				^
+				|
+				|
+				|
+	child class1---->parent class<---child class2
+
+
+5.Hybrid Inheritance
+---------------------
+=>Combination of single and multiple inheritance.
+
+
+
+		child class1<----parent class1---->child class2
+			^				^
+			|				|
+			|				|
+			-------	parent class2------------
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+				
+				POLYMORPHISM
+				============
+
+
+=>Executing the methods in more than 1 forms or one task completed by many ways.
+
+		Poly- many
+		Morphism- forms
+
+Types of polymorphism
+----------------------
+1.Method Overloading
+2.Method Overriding
+
+1.Method Overloading
+---------------------
+=>Compile time polymorphism/static binding/static polymorphism.
+		1.Same class
+		2.Smae method
+		3.Different Arguments
+
+=>Arguments depends on,
+	1.data type
+	2.data type count
+	3.data type order
+
+=> short & byte will not work in method overloading.
+=>Since we can use that range with int, JAVA doesn't allows short & byte for the method overloading concept.
+	eg-
+	e.employee((short)12);
+
+e- object name
+employee- method name
+short- Type casting
+12- value of data type (int), now assigned to short.
+
+
+program
+--------
+	package org.overloading;					//package creation
+	public class A{							//class creation
+		public void employee(){					//method creation 	
+			System.out.println("This is employee details");	//Buisness logic
+		}
+		public void employee(int id, int salary){					// method creation with data type count
+			System.out.println("employee ID:" +id +"employee salary:" +salary);	//Buisness logic
+		}
+		public void employee(string name){						//method creation with data type
+			System.out.println("employee name:" +name);				//Buisness logic
+		}
+		public void employee(string company, int mobileNumber){				//method creation with data type order
+			System.out.println("mobile number:" +mobileNumber +"employee company:" +company);	//Buisness logic	
+		}
+	public static void main(String[]args){				//main method creation
+		A e=new A();						//object creation
+		e.employee();						//call methods using object
+		e.employee(1234,90000);					//"	"	"	"
+		e.employee("Naveen");					//"	"	"	"
+		e.employee("abcd", 8148435325l)				//"	"	"	"
+		}
+	}
+OUTPUT
+======
+This is employee details
+employee ID:1234 employee salary:90000
+employee name: Naveen
+mobile number: 8148435325 employee company:abcd
+
+
+2.Method overriding
+-------------------
+=>Runtime polymorphism/dynamic binding/dynamic polymorphism.
+		
+		1. Different Class
+		2.Same method
+		3.Same arguments
+
+program
+--------
+		package org.samepackage;					//package name
+
+			public class A{						//A- class name
+			public void employee(){					//employee- method name
+				System.out.println("empID");			// buisness logic		
+				}
+			public void client(){
+				System.out.println("client Name")
+				}
+			}
+		-----------------*------------------------------
+
+			package org.samepackage;				//package name
+			
+			public class B extends A{				//B- class name
+			public void client(){					// client- method name
+				System.out.println("Client ID");		// buisness logic
+				}
+			public static void main(String[]args){			//main method creation
+				B e= new B();					// object creation
+				e.employee();					//method calling
+				e.client();					//"	"	"
+				}
+			}
+		------------------------------------------------
+		output
+		======
+			empID
+			client ID
+			
+
+
+		
+		Method Overloading		Method Overriding
+		
+1. class	same				Different (use 'extends')
+2.method	same				Same
+3.Arguments	Different			Same
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+				ABSTRACTION
+				============
+
+
+=>Hiding the implementation details or buisness logic details.
+
+
+		Definition		Declaration
+		
+1.		int a=10;		int a;
+
+2.Method	empId(){		empId();
+		buisness logic
+		}
+
+Types of abstraction
+---------------------
+1.Partial abstraction
+2.Fully abstraction
+
+1.Partial abstraction
+----------------------
+=> Contains both abstract and non-abstract method.
+=> Using the keyword "extends" in non-abstract method for accessing the abstract class.
+=> Using the keyword "abstract" in both class and abstract method.
+=> we can't create object.
+=> Don't have any default return type.
+
+
+Program
+=======
+package org.package;						//package creation
+public abstract class A{					//Abstract class creation
+	public void employee(){					// method creation
+		System.out.println("employee ID");		//buisness logic
+		}
+	public void company(){					//method creation
+		System.out.println("company name");		//buisness logic
+		}
+	public abstract void client();				//Abstract method creation--->method declaration
+		
+	}
+-----------------------------------------------------
+package org.package;						//package creation
+public class B extends A{					//class creation and call the class using inheritance
+	public void client(){					//non.abstract method creation
+		System.out.println("client name");		//buisness logic---> method definition
+		}
+public static void main(String[]arge){				//main method creation
+	B c= new B();						//object creation
+	c.employee();						// method calling
+	c.company();
+	c.client();
+	}
+}
+------------------------------------------------------
+OUTPUT
+======
+employee ID
+company name
+client name 
+
+2.Fully abstraction
+--------------------
+=> Contains only the abstract method.
+=>Contains the keyword "implements".
+=>Use the keyword "interface" instead of "class".
+=> we can't create object.
+=> In interface, "public abstract" is default. so, we need not mention.
+=> Default return type is "public abstract".
+
+=> JAVA can't achieve the multiple inheritance. But through interface, JAVA can acheive multiple inheritance.
+
+
+program
+=======
+package org.package;
+public interface A{
+	void employee();
+}
+---------------------------------------------------------
+package org.package;
+public interface B{
+	void company();
+}
+---------------------------------------------------------
+package org.package;
+public class C implements A,B{
+	public void client(){
+		System.out.println("client name")
+		}
+	@Override
+	public void employee(){
+		System.out.println("employee name");
+		}
+	@Override
+	public void company(){
+		System.out.println("company name");
+		}
+public static void main(String[]args){
+	C d=new C();
+	d.employee();
+	d.company();
+	d.client();
+	}
+}
+----------------------------------------------------------
+output
+======
+employee name
+company name
+client name
+
+
+
+IMPORTANT NOTES IN ABSTRACTION
+===============================
+implements:
+----------
+	1.Class implements Interface
+	2.Abstract class implements Interface
+extends:
+--------
+	1.Interface extends Interface
+	2.Class extends Class
+	3.Abstract class extends Abstract class
+	4.Class extends Abstract class
+	5.Abstract class extends Class
+
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+
+				CONTROL STATEMENT
+				==================
+
+A control statement is a statement that determines whether other statements will be executed.
+
+1.if
+2.if...else
+3.else..if
+4.switch
+
+Difference betweem '==' and '='
+
+== ---> Equal to and condition checking.
+= --->Assignment operator and assign values to variables.
+
+Conditional operators
+----------------------
+> --- greater than
+<  --- less than 
+<= --- less than or equal to
+>= ---greater than or equal to
+== ---equal to
+!= --- not equal to
+
+SYNTAX
+======
+1.if
+-----
+
+if(condition){
+buisness logic		//statement
+}
+
+2.if..else
+-----------
+
+if(condition){
+buisness logic		//statement1
+}
+else{
+buisness logic		//statement2
+}
+
+3.elseif
+----------
+if(condition){
+buisness logic		//statement1
+}
+elseif(condition){
+business logic		//statement2
+}
+elseif(condition){
+business logic		//statement3
+}
+else{
+buisness logic		//statement4
+}
+
+
+Operator
+========
+1.Logical AND (&&) ---> If everything is True, the output will be true.
+  Bitwise AND(&) 	
+		
+		
+		condition 1	operator	condition2	output
+		True		 &&		 True		 True
+		True		 &&		 False		 False
+		False		 &&		 True		 False
+		False		 &&		 False		 False
+
+
+2.Logical OR (||)  ---> If anyone is True, the output will be true.
+  Bitwise OR(|)		
+		
+		condition 1	operator	condition2	output
+		True		 ||		 True		 True
+		True		 ||		 False		 True
+		False		 ||		 True		 True
+		False		 ||		 False		 False
+
+
+
+	Difference between Logical and Bitwise
+	---------------------------------------
+	1.Logical---> First check condition1==> False, then automatically output will be false in AND operator.
+		    First check condition1==>False, then check condition2==>False, then output will be False in OR operator.
+
+	processing will take less time.
+
+	2.Bitwise---> First check condition1==>False, then check condition2==>False, then output will be False in both AND and OR operator.
+	
+	Processing will take more time.
+
+LOOPING
+========
+1.for ---> used to iterate a part of a program multiple times.
+2.while --->Entry check loop, which first check the condition and then enter into the loop. 
+3.do..while --->Exit check loop, which executes the loop body and then it checks the condition.
+4.Nested for
+
+Branching Statements:
+======================
+	break;    --->Terminate the loop.
+	continue; ---> Skip the current iteration.
+
+
+SYNTAX
+=======
+1. for
+-------
+	for(initialization;condition;increment/decrement){
+	buisness logic;
+	}		
+
+
+2. while
+---------
+	Initialization;
+	while(Condition){
+	   Buisness logic;
+	   increment/decrement;
+	}
+
+3.do..while
+-----------
+	Initialization;
+	do{
+	   Buisness logic;
+	   Increment/Decrement;
+	}while(Condition);
+
+
+4.Nested for
+-------------
+	for(Initialization1;Condition1;Increment/Decrement1){
+		for(Initialization2;Condition2;Increment/Decrement2){
+			Buisness logic;
+		}
+	}
+
+program important points:
+--------------------------
+1.voter age above 18--valid to vote
+  below 18 -- not valid
+
+	int age = 21;
+	if(age>=18){
+		System.out.println("valid to vote");
+	}
+	else{
+		System.out.println("not valid");
+	}
+
+		output
+		======
+		valid to vote
+
+2.find even or odd number
+
+	int a=9;
+	if(a%2==0){
+		System.out.println("even number");
+	}
+	else{
+		System.out.println("odd number");
+	}
+	
+		output
+		======
+		odd number
+
+3.print even number from 1 to 100:
+		
+		
+		for(int a=1;a<=100;a++){
+		
+		  if(a%2==0){
+			System.out.println(a);
+		  }
+		}
+
+4.sum of odd number from 1 to 100:
+
+		
+		int sum=0;
+		for(int a=1;a<=100;a++){
+		
+		   if(a%2!=0){
+			sum=sum+a;
+		   }
+		System.out.println(a);
+		}
+
+5.count of even number from 1 to 100:
+
+		int count=0;
+		for(int a =1;a<=100;a++)
+		{
+		    if(a%2==0){
+			count=count+1;
+			}
+		System.out.println(count);
+		}
+
+6.Factorial of a number:
+		int fact=1;
+		for(a=5;a>=1;a--){
+			fact=fact*i;
+			}
+		System.out.println(fact);
+		}
+
+7.Fibonacci series of number 1 to 100:
+
+		int a=0,b=1;
+		for(int c=1;c<=9;c++){
+			d=a+b;
+			a=b;
+			b=d;
+		}
+
+
+8.prime number or not:
+
+		int m,f=0,n=11;
+		m=n/2;
+		
+		if(int n==0 || int n==1){
+			System.out.println("Not a prime number");
+		}
+		else
+		for(int i=2;i<=m;i++){
+			if(n%i==0){
+			System.out.println("Not a prime number");
+			f=1;
+			break;
+		}
+		}
+		if(f==0){
+			System.out.println("Prime number");
+		}
+
+9. patterns using loop:
+
+		int n=5;
+		for(int i=0;i<n;i++){
+			for(int j=n-i;j>1;j--){
+				System.out.print(" ");
+			}
+			for(int k=0;k<=i;k++){
+				System.out.print("*");
+			}
+			System.out.println();
+		}		
+		
+
+10.Amstrong number 0r not:
+
+11.Reverse the number:
+12.count of the number:
+13.Sum of the number:
+14.palindrome number or not:
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+			STRING
+			======
+
+=>Collection of character or a word enclosed within double quotes
+=>It is pre-defined class.
+=>Package-->java.lang
+=>It is based on index[].
+ 
+String Methods:
+================
+
+Method											Return type
+-------											------------
+
+1. lenght();--> To find the length of the string.					int
+
+2. toUpperCase();--> To convert the string into uppercase.				String				
+
+3. toLowerCase();--> To convert the string into lowercase.				String
+
+4.indexOf('char');-->To find the index of particular character.				int
+
+5.lastIndexOf('char')--> To find the last index of particular character.		int
+
+6.charAt(index);--> To find the character of a particular index.			char
+
+7.string variable2.equals(string variable1);--> To compare 2 strings			boolean
+						 & its case sensitive.		
+
+8.string variable2.equalsIgnoreCase(string variable1);--> To compare 2 strings 		boolean
+							& its non-case sensitive
+
+9. string variable.contains("string");--> To check the string having 			boolean
+						sequence of character
+
+10.replace("string1","string2");--> To replace the character or a word			String
+
+11.startsWith("word")--> To find the start of the string value				boolean
+
+12.endsWith("String")--> To find the end of the string value				boolean
+
+13.isEmpty();--> To find the given string is empty or not.				boolean
+
+14.split("string")--> To split the string values					String
+
+15.1.subString(index)--> To print the value based on index given.			String
+   2.subString(index1,index2);-->To print the value based on index given.		String
+
+
+String Types
+=============
+
+		System.out.println(system.IdentityHashCode(variable));-->used to print the memory allocation of that particular object/variable.
+
+				system.IdentityHashCode is a method
+
+
+1.Literal String
+2.Non-literal string
+3.Immutable string
+4.Mutable string
+
+1.Literal string:
+-----------------
+	Eg- String s="Welcome";
+
+	=> It is stored inside the heap memory called string pool or string constant.
+	=>for Duplicates--> share same memory.
+
+2.Non-Literal string:
+----------------------
+	Eg-String s=new String("Welcome");
+
+	=> It is stored in heap memory.
+	=> For Duplicates-->share different memory.
+
+3.Immutable String/Changeable String:
+-------------------------------------
+	Eg- String s="Welcome";
+	    String s1="JAVA";
+	   s2=s.concat(s1);
+	
+
+	=>same as Literal string.
+	=>usig a keyword "concat".
+	=>for Duplicates-->share different memory after concat.
+	=>Once we declare the string, we cannot change or modify the string values that immutable because it will stored inside the heap memory called string pool/
+	  string constant.
+
+4.Mutable String/Non-changeable String:
+----------------------------------------
+	Eg- StringBuffer s=new StringBuffer("Welcome");
+	    StringBuffer s1=new StringBuffer("JAVA");
+	    s2=s.append(s1);
+		
+	=>same as Non-Literal string.
+	=>using a keyword"append" and "StringBuffer".
+	=>for Duplicates,share same memory after append.
+
+
+StringBuffer										
+-------------										
+1.Synchronous-->sequential process=>1st complete then move 2nd				
+2.Thread safe
+3.Slow process because of sequential.
+
+
+StringBuilder
+-------------
+1.Asynchronous-->non-sequential process=> 1st and 2nd can do simultaneously.
+2.Non-thread safe.
+3.fast process because of non-sequential.
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+		ACCESS SPECIFIER & MODIFIER
+		============================
+
+
+Access Specifier:
+------------------
+	=> Accessibility of methods, variables.
+	=>4 access specifiers
+		1.public -->Project level access specifier
+		2.private--> Class level access specifier
+		3.protected
+		4.Default-->Package level access specifier
+
+public
+-------
+=>project level access specifier.
+	
+					Access
+
+	same class			yes
+	same package(sub class)		yes
+	same package(non-sub class)	yes
+	different package(sub class)	yes
+	different class(non-sub class)	yes
+
+=>Same package--> objects, extends.
+=>Different package--> objects, extends
+	
+
+private
+--------
+=>Class level access specifier.
+
+					Access
+
+	same class			yes
+	same package(sub class)		No
+	same package(non-sub class)	No
+	different package(sub class)	No
+	different class(non-sub class)	No
+
+=>supports only within the class
+
+protected
+----------
+	
+					Access
+
+	same class			yes
+	same package(sub class)		yes
+	same package(non-sub class)	yes
+	different package(sub class)	yes
+	different class(non-sub class)	No
+
+=>same package--> objects,extends
+=>Different package--> extends
+
+
+default
+--------
+=>Package level access specifier
+	
+					Access
+
+	same class			yes
+	same package(sub class)		yes
+	same package(non-sub class)	yes
+	different package(sub class)	No
+	different class(non-sub class)	No
+
+=>same package-->object,extends.
+=>Different package-->not used.
+
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+					MODIFIERS
+					=========
+
+
+
+			Abstract			Static					Final
+
+Class			can't create object		NA					can't inherit
+
+Method			can't define method		=>no need to create object		can't override	
+		
+							=>we can call directly method
+							name for same and different
+							class(using inheritance for 
+							different class).
+
+							=>Without using extend
+							"ClassName.methodName();"
+
+Variable		NA				=>No need to give value			can't modify
+
+							=>we can call directly by a 
+							variable name for same and 
+							different class (Using 
+							inheritance for different class).
+
+							=>without using extends
+							"className.variableName();"
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+
+				TYPES OF VARIABLES
+				===================
+
+
+1.Local variable
+2.Instance variable
+3.Static variable
+
+1.Local variable (Method level)
+---------------------------------
+
+=>Declare inside the method block or constructor.
+=>Access only within the method block.
+=>not accessed outside the method block.
+=> Stored in "Stack memory".
+=>No access specifier is declared for the variable.
+=>Need to initialize the value for variable, it not takes default value.
+
+2.Instance variable/Global variable (object level)
+---------------------------------------------------
+
+=>Declare inside the class and outside the method.
+=>Gets activated when the object is created.
+=>Gets deactivated when the object is destroyed.
+=> Stored in heap memory.
+=> Access specifier is declared for the variable.
+=>No need to initialize the value for the variable, it takes default value automatically.
+
+3.Static variable (Classlevel)
+-------------------------------
+
+=>Declare inside the class and outside the method.
+=>Gets activated when the control enters the class.
+=>Gets deactivated when the control exists the class.
+=>Stored in heap memory.
+=>Access specifier is declared for the variable.
+=>No need to initialize the value for the variable, it takes default value automatically.
+
+=>We can use throughout the class. no need to create object we can call directly by a variable name.
+=> In different class,using extends we can call directly by a variable name. Without using extends we can call by "ClassName.VariableName"
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+	
+				ARRAY
+				======
+
+
+=>we can store multiple values of similar data types in a single variable.
+
+=>Similar datatypes.
+
+=>Index based.
+
+=>Array index will start from 0 to n-1. n-->length of the array.
+
+	SYNTAX
+	=======
+		datatype variable[]=new datatype[size];
+	
+	Eg- String s= new String[5];			String-->data type
+		s[0]=10;				s-->variable
+		s[1]=20;				5-->index size
+		s[2]=30;
+		s[3]=40;
+		s[4]=50;
+		s[5]=60;
+
+for loop--->Index Based
+---------
+		for(i=0;i<s.length;i++){
+		System.out.println(s[i]);
+		}
+
+	OUTPUT
+	======
+		10
+		20
+		30
+		40
+		50
+		
+	No 60 will be printed because the array size is only 5 (i.e.,)0,1,2,3,4.
+
+
+Enhanced for loop---->Value Based
+------------------
+
+	type foreach and press ctrl+space.
+		
+	SYNTAX
+	=======
+		for(datatype newVariable:StoredVariable){
+			System.out.println(newVariable);
+		}
+
+	Eg- for(String a:s){
+		System.out.println(a);
+		}
+
+2D ARRAY
+---------
+	SYNTAX	
+	=======
+
+		dataType variableName[][]=new dataType[size1][size2];		
+
+
+		Eg- String s= new String[3][3];			String-->data type
+		s[0][0]=10;					s-->variable
+		s[0][1]=20;					3-->index size
+		s[0][2]=30;
+		s[1][0]=40;
+		s[1][1]=50;
+		s[1][2]=60;
+		s[2][0]=70;
+		s[2][1]=80;
+		s[2][2]=90;
+		s[3][0]=100;
+
+for loop--->Index Based
+---------
+		for(i=0;i<s.length;i++){
+			for(j=0;j<s.length;j++){
+				System.out.println(s[i][j]);
+		}
+
+	OUTPUT
+	======
+		10
+		20
+		30
+		40
+		50
+		60
+		70
+		80
+		90
+		
+	No 100 will be printed because the array size is only 3,3 (i.e.,)[0][0],[0][1],[0][2],[1][0],[1][1],[1][2],[2][0],[2][1],[2][2].
+
+Default values of Array:
+------------------------
+int		0
+String		null
+char		' 'space
+boolean		false
+
+
+
+Disadvantage of Array
+----------------------
+=>We can only store similar datatype.
+=>Once we fixed the size, we cannot modify.
+=>Memory wastage is high.
+=>It will allocate a memory at a compile time.
+
+
+Difference between normal for loop and enhanced for loop
+-------------------------------------------------------------
+
+	Normal for loop					Enhanced for loop
+
+=>Index based						=>Value Based
+=>set and check the condition				=>can't check the condition
+=> can print from any value				=>It will print all values
+=>Chance of error is more				=>Chance of error is less
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+				COLLECTIONS
+				============
+
+
+=>Collection is a type of framework and collection is an interface.
+=>Storing multiple values of dissimilar datatype in a single reference name.
+=>Memory wastage is low due to memory is allocated at a run time.
+
+Collection types
+-------------------
+1.List
+2.Set
+
+
+				1.List
+				=======
+=>List is one of interface in collections.
+
+=>Instead of using "implements" keyword, we can use the List through this syntax.
+
+=>List is an index based.
+
+=>It allows duplicates.
+
+=>Lists prints in insertion order.
+
+Types of List or Class of List:
+--------------------------------
+1.ArrayList
+2.LinkedList.
+3.Vector.
+
+
+	SYNTAX for dissimilar data type
+	=================================
+		List referenceName = new ArrayList();
+		List referenceName = new LinkedList();
+		List referenceName = new Vector();
+
+	SYNTAX for similar datatype
+	============================
+	=>for similar datatype, we using "Generics(<>)".
+	=>Within generics the wrapper class is used.
+
+		List<Wrapper class> referenceName = new ArrayList<>();
+		List<Wrapper class> referenceName = new LinkedList<>();
+		List<Wrapper class> referenceName = new Vector<>();
+ 
+Methods in ArrayList & LinkedList
+----------------------------------
+												Return type
+Default value is -1.										-----------
+										
+1.get(index)-->To print the particular value in index.						
+
+2.add(value)--> To add a value to the list.													
+
+3.add(index,value)--> to add a value to the index.						
+
+4.remove(index)-->To remove the particular value in index.					
+
+5.replace(index,value)-->To replace the value for the particular index.				
+
+6.size()--> To get the size of the list.							int							
+
+7.indexOf(value)-->To get the particular index.							int
+
+8.lastIndexOf(value)-->To get the last index of particular value.				int
+
+9.contains(value)-->To check the value present in the list or not.				boolean
+
+10.l2.addAll(l1)-->To concatenate 2 lists into one list.					
+
+11.l2.retainAll(l1)-->Used to retain common values/ To print only common values
+
+12.l2.removeAll(l1)--> Used to remove common values/ To print uncommon values.
+
+
+Iteration the List:
+-------------------
+
+=>using size() to iterate the normal for loop
+		for(int i=0;i<li.size();i++){
+			System.out.println(li.get(i));
+		}
+
+
+=> to iterate the loop using enhanced for loop:
+		for(Integer x:li){
+			System.out.println(x);
+		}
+
+
+
+				2.SET
+				=====
+
+=> Set is an interface.
+
+=>It is value based one.
+
+=>It does not allows duplicates.
+
+=>Cannot use normal for loop.
+
+=>Set prints in below order.
+
+Types of set
+-------------
+1.HashSet-->random
+2.LinkedHashSet-->Insertion
+3.TreeSet-->ascending order
+
+
+Method not supported in set
+-----------------------------
+1.get
+2.set
+3.indexOf
+4.lastIndexOf
+5.add(index,value)
+
+	SYNTAX for dissimilar data type
+	================================
+		Set referenceName=new HashSet();
+		Set referenceName=new LinkedHashSet();
+		Set referenceName=new TreeSet();
+
+	SYNTAX for similar datatype
+	============================
+	=>for similar datatype, we using "Generics(<>)".
+	=>Within generics the wrapper class is used.
+
+		Set<Wrapper class> referenceName = new HashSet<Wrapper classs>();
+		Set<Wrapper class> referenceName = new LinkedHashSet<Wrapper class>();
+		Set<Wrapper class> referenceName = new TreeSet<Wrapper class>();
+ 
+=> to iterate the loop using enhanced for loop:
+		for(Integer x:se){
+			System.out.println(x);
+		}
+
+-------------------------------------**************************---------------------------------------********************-----------------------------------------------
+
+			 MAP
+			=====
+
+=>Map is an interface
+=>Map will have key and value pair.
+
+=>Key--> Doesn't allows duplicates.
+=>value-->Allows duplicates.
+
+
+Types/ classes of map
+----------------------
+1.HashMap-->random
+2.LinkedHashMap-->Insertion
+3.TreeMap-->Ascending order
+4.HashTable-->Random order
+
+	SYNTAX
+	=======
+										key		value
+		Map<key,value> refName = new HashMap<>(); 		   --> 1,null		null
+		Map<key,value> refName = new LinkedHashMap<>();		   --> 1, null		null
+		Map<key,value> refName = new TreeMap<>();		   -->1,ignores null	null
+		Map<key,value> refName = new HashTable<>();		   -->1,ignores null	ignores null
+
+
+Methods
+--------
+									Return type
+1.put(key,value)--> To add a value to the map.
+
+2.size()--> To find the number of index.				int
+
+3.containsKey()-->To check the key available or not			boolean
+
+4.containsValue()-->To check the value present or not			boolean
+
+5.get()-->To print the value using key					int,string
+
+6. keySet()--> To print the keys					Set
+
+7.values()-->To print the values					collection
+
+8.entrySet()-->  Used to iterate 					entrySet<Entry<Integer,Integer>
+
+
+=> we cannot iterate the map directly. we can create a method called entrySet to create variable. Then using enhanced for loop we call methods.
+
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+				FILE OPERATION
+				===============
+
+
+=>File is a class.
+=>File is used to perform file related operations.
+=>package--->java.io.File;
+
+	SYNTAX
+	=======
+		File objectName=new File("Directory");
+
+		Eg- File cd=new File("D://Add");
+Methods
+=======
+									Return type
+
+1.mkdir()-->To create a single folder.					Boolean
+
+2.mkdirs()-->To create a multiple folder.				Boolean
+
+3.createNewFile()-->To create a new file.				Boolean
+
+4.canRead()-->To read a created file.					Boolean
+
+5.canWrite()--> To write a created file.				Boolean
+
+6.canExecute()---> To excuete a created file.				Boolean
+
+7.list()-->To list files in the folder.					String[]
+
+8.listFiles()-->To list the files along with path.			File[]
+
+
+User defined list:
+------------------
+
+FileUtil
+---------
+=>fileUtils is a className.
+
+Methods
+=======
+
+website-->common io 2.4 jar download-->1st link-->jar file download.
+In Eclipse, Project--->new-->Folder-->paste the jar file download-->Right click-->Build path-->Add to Build path.
+
+1. write(referenceName,data)-->To write a data on the created file.
+
+2.write(fileobjectName,data,append)-->1.To override some content if "append" gives false.
+				      
+				      2.To add some content if "append" gives True.
+
+3. readLines(fileobjectName)-->To read a file.
+
+4.copyFiles(filereferenceName1,filereferenceName2)-->To copy a data to new file from old file.	
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+				CONSTRUCTOR
+				===========
+
+
+=>Class name and Constructor name must be same.
+=>It doesn't have any return type.
+=>When we create object, default constructor will invoke automatically.
+
+=>We can be overload constructor------------>Interview question
+
+	SYNTAX
+	======
+		public ConstructorName(){
+			buisness logic;
+		}
+
+TYPES
+------
+1.Non-parameterized constructor/Default constructor.
+2.Parameterized constructor/Argument based constructor.
+
+program for types of constructor
+---------------------------------
+	package org.const;
+	public class Const{			
+		public Const(){								//Default constructor
+			System.out.println("Default constructor");	
+		}
+		public Const(int a){							//Parameterized constructor
+			System.out.println("parameterized constructor" +a);
+		}
+		private void const1(int i){					//gets error because Constructor doesn't have a return type.
+			System.out.println(i)
+		}
+	public static void main(String[]args){
+		Const c= new Const();
+		Const c1=new Const(10);
+		
+	}
+	}
+
+OUTPUT
+=======
+Default constructor
+Parameterized constructor 10
+
+Constructor Chaining
+---------------------
+=>The process of calling one constructor from another constructor with respect to current object creation is called constructor chaining.
+
+
+
+This()
+-------
+=>It is a keyword.
+=>If we use "this" argument, we can pass without object.
+=>This argument we must use only in the first arguments.
+
+
+=>class level--> variable value.
+=>Method level-->
+
+program for "this" argument
+---------------------------
+	package org.const;
+	public class Const{			
+		public Const(){	
+			this(10);							//Default constructor
+			System.out.println("Default constructor");	
+		}
+		public Const(int a){							//Parameterized constructor
+			System.out.println("parameterized constructor" +a);
+		}
+		private void const1(int i){					//gets error because Constructor doesn't have a return type.
+			System.out.println(i)
+		}
+	public static void main(String[]args){
+		Const c= new Const();
+		
+		
+	}
+	}
+
+OUTPUT
+=======
+Default constructor
+Parameterized constructor 10
+
+
+Super()
+-------
+
+=>It will refer the parent class level variable value.
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+					EXCEPTION
+					==========
+
+=>It is like an error or unexpected event, whenever it occurs the program terminate itself.
+
+
+Types of Exception
+-------------------
+1.Unchecked Exception
+2.Checked Exception
+
+
+1.Unchecked Exception
+----------------------
+=>Run time Exception.
+
+=>Whenever the exception will occur in run time, it is called run time exception.
+
+	Types
+	=====
+	1.Arithematic Exception
+	2.Nullpointer Exception
+	3.Input mismatch Exception
+	4.ArrayIndexBoundOf Exception
+	5.StringIndexBoundOf Exception
+	6.IndexOutOfBound Exception
+	7.NumberFormat Exception
+
+2.Checked Exception
+--------------------
+=>Compile time Exception
+
+=>Whenever the exception will occur in compile time, it is called compile time Exception.
+
+=>This Exception will occur during JDK/JVM crashed.
+
+	Types
+	------
+	1.FileNotFound Exception
+	2.io Exception-->input output exception
+	3.sql Exception--> database operation fails
+	4.ClassNotFound Exception-->project has no searched class.
+
+
+
+parseInt()--> Used to convert the string numbers into integer.
+
+	SYNTAX
+	======
+		Integer.parseInt(objectName);
+	CTRL+2+L
+		int referenceName=Integer.parseInt(objectName);
+
+	
+	Eg1- String g="1234";
+		
+	    Integer.parseInt(g);		CTRL+2+L
+	    int h = Integer.parseInt(g);
+
+	    System.out.println(h);
+
+	OUTPUT
+	======
+		1234
+
+	Eg1- String g="1234@gmail";
+		
+	    Integer.parseInt(g);		CTRL+2+L
+	    int h = Integer.parseInt(g);
+
+	    System.out.println(h);
+
+	OUTPUT
+	======
+		NumberFormat Exception
+
+
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+
+			Exception Handling
+			===================
+
+Types
+-----
+
+1.try()   ---> 	Whenever the exception will occur, we will use try block.
+		Handle the exception at run time.
+
+2.catch() --->	Catch is the block.
+		It is going to catch the exception
+		Handle the exception at run time.
+
+3.finally()--->	It will excuete the finally block.
+		It doesnot consider whether the exception is handled or not.
+		Handle the exception at run time.
+
+4.throw() --->	It is declared inside the method declaration or method body.
+	      	Only one throw can be declared at a time.
+	      	Handle the exception at compile time.
+
+5.throws()--->	It is declared in the method definition.
+		More than one throw can be declared at a time.
+		
+
+	     Eg- public static void main(String[]arge) throws ioException,awtException{
+		buisness logic;
+		}
+
+1.try,finally
+2.try,catch,finally
+3.try, multiple catch
+4.nested try.
+
+
+printStackTrace()---> Used to find the type of exception.
+
+	Eg- catch(Exception e){
+		e.printStackTrace();
+		}
+
+=>All exception is created as class.
+
+=>Exception/Throwable is the super class of all exception.
+
+
+		USER DEFINED EXCEPTION
+		=======================
+
+=> we can create an own exception and customize it.
+
+method
+-------
+getMessage()---> All error message present here.
+
+	
+
+	program:
+	--------
+1.
+		package org.hcl.test;
+
+		public class EmployeeNotFoundException extends Exception
+		{
+
+			@Override
+			public String getMessage()
+			{
+				String msg="Employee Not Found Exception";
+				return msg;
+			}
+		}
+
+2.
+		package org.hcl.test;
+
+		public class Company{
+		
+		public static void main(String[]args) throws EmployeeNotFoundException
+		{
+
+			throw new EmployeeNotFoundException();
+		}
+		}
+
+----------------------------------------------**********-----------------------------------------------------------------------------------------
+		ENCAPSULATION
+		=============
+
+=>Wrapping up of data and code acting on a data together into a single unit is called encapsulation.
+=>The structure of creating a folder is called encapsulation.
+
+EG:-POJO class
+
+POJO class
+-----------
+=>POJO-->Plain Old Java Object.
+=>Class which contains only method,private variable and constructor is called POJO class.
+=>Other names-->Model class/Bean class
+
+=>Using this POJO class, we can create user defined list,set map.
+
+
+Program  
+========
+
+POJO class
+-----------
+
+	package org.test;
+	
+	public class Employee{
+	
+		private int id;
+
+		private String name;
+
+		private long mobileNumber;
+
+		public int getId(){
+			return id;
+		}
+		public int setId(){
+			this.id=id;
+		}
+		public String getname(){
+			return name;
+		}
+		public String setname(){
+			this.name=name;
+		}
+		public long getmobileNumber(){
+			return mobileNumber;
+		}
+		public long setmobileNumber(){
+			this mobileNumber=mobileNumber;
+		}
+	}
+
+
+User defined List:
+------------------
+
+	package org.test;
+
+	public class Company{
+
+	public static void main(String [] args){
+
+		List<Employee> e=new ArrayList<Employee>();
+
+		Employee e1=new Employee();
+
+		e1.setId(123);
+		e1.setname("naveen");
+		e1.setmobileNumber(9123503031l);
+
+		Employee e2=new Employee();
+
+		e2.setId(234);
+		e2.setname("velusamy");
+		e2.setmobileNumber(9842116506l);
+
+		e.add(e1);
+		e.add(e2);
+
+		for(int i=0;i<e.size();i++){
+
+			System.out.println(e.get(i).getId());
+			System.out.println(e.get(i).getname());
+			System.out.println(e.get(i).getmobileNumber());
+		}
+		}
+	}
+
+
+User defined Set:
+------------------
+
+	package org.test;
+
+	public class Company{
+
+	public static void main(String [] args){
+
+		Set<Employee> e=new LinkedHashSet<Employee>();
+
+		Employee e1=new Employee();
+
+		e1.setId(123);
+		e1.setname("naveen");
+		e1.setmobileNumber(9123503031l);
+
+		Employee e2=new Employee();
+
+		e2.setId(234);
+		e2.setname("velusamy");
+		e2.setmobileNumber(9842116506l);
+
+		e.add(e1);
+		e.add(e2);
+
+		for(Employee x:e){
+
+			System.out.println(x.getId());
+			System.out.println(x.getname());
+			System.out.println(x.getmobileNumber());
+		}
+		}
+	}
+
+User defined Map:
+------------------
+
+	package org.test;
+
+	public class Company{
+
+	public static void main(String [] args){
+
+		Map<Integer,Employee> e=new TreeMap<Integer,Employee>();
+
+		Employee e1=new Employee();
+
+		e1.setId(123);
+		e1.setname("naveen");
+		e1.setmobileNumber(9123503031l);
+
+		Employee e2=new Employee();
+
+		e2.setId(234);
+		e2.setname("velusamy");
+		e2.setmobileNumber(9842116506l);
+
+		e.put(100,e1);
+		e.put(200,e2);
+
+		Set<Entry<Integer,Employee>> en=e.entryset();
+
+		for(<Entry<Integer,Employee>> x:en{
+
+			System.out.println(x.getKey()+"...Emp Info...");	
+			System.out.println(x..getValue().getId());
+			System.out.println(x.getValue().getname());
+			System.out.println(x.getValue().getmobileNumber());
+		}
+		}
+	}
+
+-------------------------------------------------*******----------------------------------------------------------------
+
+			SINGLETON
+			==========
+
+=>The class which contains only one object is called singleton.
+
+=>Whenever we need a variable as a result, we need to pass the datatype as the returntype in the method level.
+	
+Eg:
+---
+	package org.test;
+		
+	public class Employee{
+
+	public int add(){				//datatype as reutrn type in method level
+	       ---
+		int a=10,b=20,c;
+
+		c=a+b;
+		System.out.println(c);
+
+		return c;
+		}
+	public static void main(String[]args){
+
+		Employee e=new Employee();
+
+		int avg=e.add()/2;			//directly pass the variable as a result
+		--- --- ----------
+		System.out.println(avg);		
+	}
+	}
+
+=>Whenever we need a object as a result, we need to pass the class name as a return type in the method level.
+
+Eg:
+---
+	package org.test;
+		
+	public class Employee{
+
+	public void getInstance(){			//getInstance method is used to pass the object as the result.
+		    ---------------
+		Employee e=new Employee();
+		--------------------------
+
+	}
+
+	public int add(){				//datatype as reutrn type in method level
+	       
+		int a=10,b=20,c;
+
+		c=a+b;
+		System.out.println(c);
+
+		return c;
+		}
+	public static void main(String[]args){
+
+		Employee e=getInstance();
+		int avg=e.add()/2;
+		System.out.println(avg);
+		
+		}
+	}
+
+=>We have to check the condition whether the object is created or not, if not the object has to be created(e==null), we are asking to create object.
+
+package org.test;
+		
+	public class Employee{
+
+	public void getInstance(){			//getInstance method is used to pass the object as the result.
+		
+		if(e==null){
+		--------------
+			Employee e=new Employee();
+		}
+	}
+
+	public int add(){				//datatype as reutrn type in method level
+	       
+		int a=10,b=20,c;
+
+		c=a+b;
+		System.out.println(c);
+
+		return c;
+		}
+	public static void main(String[]args){
+
+		Employee e=getInstance();
+		int avg=e.add()/2;
+		System.out.println(avg);
+		
+		}
+	}
+
+=>We need object as a result for every class, so that we have to declare the object in global level.
+
+Eg:
+	package org.test;
+		
+	public class Employee{
+
+		Employee e;				//object declared in global level
+		-----------
+	public void getInstance(){			//getInstance method is used to pass the object as the result.
+		
+		if(e==null){
+			Employee e=new Employee();
+		}
+	}
+
+	public int add(){				//datatype as reutrn type in method level
+	       
+		int a=10,b=20,c;
+
+		c=a+b;
+		System.out.println(c);
+
+		return c;
+		}
+	public static void main(String[]args){
+
+		Employee e=getInstance();
+		int avg=e.add()/2;
+		System.out.println(avg);
+		
+		}
+	}
+
+
+=> We have to create a constructor and manually change it to private to restrict the object accessed in another class.
+
+Eg:	
+	package org.test;
+		
+	public class Employee{
+
+		Employee e;				
+
+	private Employee(){				//Constructor created and changed it into private level access
+	--------
+	}	
+
+	public void getInstance(){			//getInstance method is used to pass the object as the result.
+		
+		if(e==null){
+			Employee e=new Employee();
+		}
+	}
+
+	public int add(){				//datatype as reutrn type in method level
+	       
+		int a=10,b=20,c;
+
+		c=a+b;
+		System.out.println(c);
+
+		return c;
+		}
+	public static void main(String[]args){
+
+		Employee e=getInstance();
+		int avg=e.add()/2;
+		System.out.println(avg);
+		
+		}
+	}
+
+=>Change the method as public static and declare the object as static in global level.
+
+Eg:	
+	package org.test;
+		
+	public class Employee{
+
+		static Employee e;			//Give object as private level access
+		-------
+	private Employee(){				//Constructor created
+
+	}	
+
+	public static void getInstance(){			//getInstance method is used to pass the object as the result.
+		
+		if(e==null){
+			Employee e=new Employee();
+		}
+	}
+
+	public int add(){				//datatype as reutrn type in method level
+	       
+		int a=10,b=20,c;
+
+		c=a+b;
+		System.out.println(c);
+
+		return c;
+		}
+	public static void main(String[]args){
+
+		Employee e=getInstance();
+		int avg=e.add()/2;
+		System.out.println(avg);
+		
+		}
+	}
+
+=>We need object as a result, we have to pass class name as return type in the method level and add the return statement.
+
+Eg:	
+	package org.test;
+		
+	public class Employee{
+
+		static Employee e;			//Give object as private level access
+
+	private Employee(){				//Constructor created
+
+	}	
+
+	public static void getInstance(){			//getInstance method is used to pass the object as the result.
+		
+		if(e==null){
+			Employee e=new Employee();
+		}
+	return e;
+	---------
+	}
+
+	public int add(){				//datatype as reutrn type in method level
+	       ---
+		int a=10,b=20,c;
+
+		c=a+b;
+		System.out.println(c);
+
+		return c;
+		
+		}
+	public static void main(String[]args){
+
+		Employee e=getInstance();
+
+		
+		}
+	}
+---------------------------------------***********************-------------------------------------------******************************-----------------------------------
+
+System.out.println();
+------------------------
+println() used to print the arguments that passed to it.
+=========         --------------------
+System is a final class defined in java.lang package.
+=======     -----------            ---------
+out is an instance of printstream type,which is a public and static member field of the system class.
+===		      -----------------                                                 --------------
+
+
+
+public static void main(String[]args)
+--------------------------------------
+public isan access specifiers, which specifies where and who can access the method.
+======
+static is a keyword which is when associated with method,makes it a class related method. If the main method is static, JVM can invoke it without instantiating a class.
+====== Tis saves unnecessary wastage of memory which would have been used by the object declared calling by the main method by JVM.
+
+void is a return type and used to specify a method doesnot return anything.
+====
+main is the identifier and name of java main method
+====
+String[]args
+=============
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

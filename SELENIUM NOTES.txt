@@ -1,0 +1,1287 @@
+SELENIUM
+=========
+
+=>Selenium is a automation testing tool.
+
+
+Selenium components
+====================
+
+1. Selenium IDE
+----------------
+=>IDE---Integrated Development Environment.
+=> Accessed ony in "Mozilla FireFox".
+
+2.Selenium RC
+--------------
+=>RC---Remote Control
+=> Accessed by all browesers like chrome,internet explorer, mozilla firefox.
+=>Able to automate by installing seperate playback devices.
+
+3.Selenium webdriver (Mostly used)
+---------------------
+=>Accessed by all browsers like chrome,mozilla firefox, internet explorer without installing playback devices.
+
+4.Grid
+-------
+=>Advanced version of Selenium.
+
+
+		
+		Code (Eclipse)----> driver(interface)----> Browser(Launch)
+
+
+How to download Selenium files?
+--------------------------------
+Google-->Selenium jar download---->Download Selenium----->Latest Stable version(3.141.59)-->keep(after download).
+
+
+		If we want to automate we need to install driver
+
+1.Google-->Selenium jar download---->Download Selenium----->Internet Explorer Driver Server--->64bit Windows(download).
+
+	Before downloading we need to check the version.
+	Google--->:---:help--->about google chrome--->version.
+
+2.Google-->Selenium jar download---->Download Selenium----->+Browser---->Chrome---->documentation--->all version available in downloads
+
+3.Google-->Selenium jar download---->Download Selenium----->+Browser---->firefox---->documentation--->all version available in downloads
+
+
+Eclipse
+========
+1.project creation.
+
+2.project creation--->Right click--->New--->Folder for Library files.
+
+	We copy and paste the downloaded jar files to Folder for Library files.
+
+3. Folder for Library files--->jar file--->Right click--->Build path---->Add to Build path.
+
+	Reason: We have no seperate predefined files for selenium. so we used that jar files as a predefined library.
+
+4.project creation--->Right click--->New--->Folder for Driver files.
+	
+	We copy and paste the downloaded driver server files to Folder for Driver files.
+
+	Reason: Our code and Browser will not get interacted directly without driver. Driver files will act as a bridge for code and Browser.
+
+SYNTAX for selenium in Eclipse
+-------------------------------
+--------------------------------
+1.project creation
+2.class creation
+3.main method creation
+
+
+Important points
+=================
+
+1.To configure browser
+
+	System.setProperty("String key","String values");
+	       -----------
+	String key:
+	===========
+	1. chrome==> "webdriver.chrome.driver"
+	2.Mozilla Firefox==>"webdriver.gecko.driver"
+	3.Internet Explorer==>webdriver.ie.driver"
+
+
+	String values
+	=============
+	Driver file--->Right click---> properties--->Location(copy) & paste it in "String values".
+
+2.Upcasting
+	
+	1.Chrome Browser
+
+		WebDriver referenceName = new ChromeDriver();
+	
+	2.Mozilla Firefox Browser
+		
+		WebDriver referenceName = new FirefoxDriver();
+
+	3.Internet Explorer Browser
+
+		WebDriver referenceName = new InternetExplorerDriver();
+
+
+
+			WebDriver===>Interface
+
+			referenceName==> referecename for "Interface" & objectName for "Class Name"
+
+			ChromeDriver,FirefoxDriver,InternetExplorerDriver===> Class Name
+
+3.To launch URL
+	
+	referenceName.get("URL");
+		      ----
+
+4. To get current URL
+
+=> To print the current url in the Eclipse
+
+	referenceName.getCurrentUrl();			ctrl+2 release+l
+
+	String url=referenceName.getCurrentUrl();	then
+				-----------------
+	System.out.println(url);
+
+
+5.To get Title
+
+=>To print  the title of the current page in Eclipse.
+
+	referenceName.getTitle();			ctrl+2 release+l
+
+	String title = referenceName.getTitle();	then
+				    ------------
+	System.out.println(title);
+
+
+Interface:
+==========
+1.WebDriver
+	Methods
+	========
+	1.get();
+
+	2.getCurrentUrl();
+
+	3.getTitle();
+
+	4.findElement(By.locators);==>to find the locators & By==>Abstract class.
+
+	5.findElements(By.locators);==>To find the locators &By==>Abstract Class.
+
+	6.getText();==> Used to print the already existing text in webpage.
+
+	7.getAttribute("value")==> Used to print the corresponding attribute value in Eclipse.
+
+			       ==> User inputs are automatically stored in "Value" attribute.
+			       
+			       ==> value is an attribute
+
+2.WebElement
+	Methods
+	=======
+	1.sendKey();==>To send/pass the values to the text boxes
+	2.click();==>To click the buttons like signin,submit,login etc.,
+
+
+Locators
+=========
+1.id--->sendKeys()
+
+2.name--->sendKeys()
+
+3.className
+
+4.xpath --->click()
+	
+5.tagName
+6.linkText
+7.partiallyLinkText
+8.cssSelector
+
+
+DOM structure
+==============
+=>DOM--->Document Object Model
+
+=> In website like facebook, first text box is "enter email or phone number".
+	In that text box, Right Click--->Inspect. or ctrl+shift+I
+
+=>DOM structure present there.
+
+	<tagname attributename=attributevalue...>
+
+1.tagname-->pink or purple color
+
+2.attribute name--->Brown color
+
+3.Attribute value---> Blue color
+
+
+xpath()
+=======
+
+=>To validate the locators.
+
+1.xpath()
+----------
+
+=>If id,name,class not present.
+	
+	SYNTAX
+	======
+		//tagname[@attributename='attributevalue'] & (//tagname[@attributename='attributevalue'])[index]
+
+/--->Absolute path==>From Starting tag to required tag.
+//--->Relative path==> Required tag only.(Best for use)
+
+	
+		Website--->facebook--->inspect--->ctrl+f---->SYNTAX
+
+=>Method used--->click();
+
+2.text()
+--------
+
+=>Black color.
+		
+		SYNTAX
+		=======
+			//tagName [AttributeName='AttributeValue']
+
+=>Method used--->click();
+
+3.contains()
+-------------
+
+=>Black color.
+
+=> Used to print the paragraphs or a sentence present from the website to Eclipse.
+
+	eg- "Facebook connects the people" is the sentence present in facebook website.
+		
+		SYNTAX
+		=======
+			//tagName[contains(text(),'partialtext')]
+
+
+			//h2[contains(text(),'connects')]
+
+
+	output in Eclipse :
+		facebook connects the people
+
+			
+			
+			DEBUG
+			======
+=>Step by step verification or line by line excuetion.
+=>To set a breakpoint.
+=>We are going to find main route cause of the problem.
+
+=>F5-->To set a breakpoint 
+	or
+   Double click on the line.
+
+=> F6 or Fn+F6----> step over
+
+=>F8 or Fn+F8--> To disconnect the debug.
+
+=>To set a breakpoint 2 step ahead of the error occured line.
+
+In order to overcome the Exception, we used Debug. --->Right click-->Debug as-->Run.
+
+=>Step over---> If we want to pass one step to another step.
+
+=> Step into---> To check whether the logic/looping method is correctly work or not.
+
+=>Step return---> Used to come back to previous step.
+
+
+==>After clicking the button in website, a new popup will show. In that we have to enter some text or numbers it takes some milliseconds to search.
+For that, we have to give sleep.
+
+	Eg--> In facebook, we have to click the button of create new account. a new popup will opened. we have to wait for searching some text thet we given. so we 
+		give "Thread.sleep(milliseconds)".
+
+		btncreate.click();
+		Thread.sleep(3000);
+
+
+Maximize the window
+==================== 
+=>To maximize the window.
+
+
+	Syntax : referenceName.manage().window().maximize();
+	------
+
+
+		MOUSE ACTIONS
+		=============
+
+		ACTIONS
+		========
+
+=>Actions is a class.
+=>Using mouse, we can do some actions in webpage.
+
+
+1.To do mouse over action:
+---------------------------
+=>Method--->moveToElement()
+	
+	SYNTAX
+	=======
+		Actions objectName=new Actions(WebDriverreferenceName);
+		objectName.moveToElement(WebElementReferenceName).perform();
+
+2.To do Drag and Drop:
+-----------------------
+=>Method--->dragAndDrop()
+
+	SYNTAX
+	=======
+		Actions objectName= new Actions(WebDriverreferenceName);
+		objectName.dragAndDrop(Source,Destination).perform();
+
+		source: b--->taken from--> WebElement b=driver.findElement(By.xpath(""));
+
+		destination: c--->taken from---> WebElement c=driver.findElement(By.xpath(""));
+
+
+3.Right Click:
+---------------
+=>Method--->contextClick()
+
+	SYNTAX
+	======
+		Actions objectName=new Actions(WebDriverreferenceName);
+		objectName.contextClick(WebElementreferenceName).perform();
+
+4.Double click:
+----------------
+=>Methhod--->doubleClick()
+		
+	SYNTAX
+	======
+		Actions objectName=new Actions(WebDriverreferenceName);
+		objectName.doubleClick(WebElementreferenceName).perform();
+
+
+WebDriverreferenceName.close();---> To close the current opened browser.
+
+WebDriverreferenceName.quit();--->To close all browser.
+
+
+	KEYBOARD ACTIONS
+	=================
+	
+	Robot
+	------
+=>Robot is a class.
+
+=>It is used to perform keyboard actions.
+
+=>It is present in the package of java.awt.
+
+=>It throws AWT Exception.
+
+1.To press the key in keyboard
+-------------------------------
+=>Method-->keyPress()
+
+	SYNTAX
+	=======
+		Robot objectName= new Robot();
+		objectName.keyPress(keyEvent.VK_keys);
+
+	=>keyPress-->Method
+	=>keyEvent-->Class
+	=>VK_keys-->Static variable/static reference name.
+	=>VK-->virtual keys.
+
+
+2.To release the pressed key in keyboard
+-----------------------------------------
+=>Method-->keyRelease()
+	
+	SYNTAX
+	======
+		Robot objectName=new Robot();
+		objectName.keyRelease(keyEvent.VK_keys);
+
+
+		ALERTS
+		======
+
+=>It is like a pop up message, whenever it occur we cannot perform any other action in that webpage.
+=>We have to handle that alert.
+=>Alert is an interface.
+
+	SYNTAX
+	======
+		Alert referenceName=webdriverreferenceName.switchTo().alert();
+
+		referencrName.Method();	
+
+
+Types
+------
+1.Simple alert--->Contains only OK button.(We can accept).
+
+2.Confirm alert--->Contains OK and CANCEL button.(Either we can accept or dismiss).
+
+3.Prompt alert--->Contains text box with OK and CANCEL button.(We can pass value to that text box and we can either accept or dismiss).
+
+Method
+======
+1.accept()-->for OK button.
+
+2.dismiss()-->for cancel button
+
+3.sendKeys()--> for send values in text box
+
+4.getText()-->to print the value in Eclipse from that text box
+
+
+		SCREENSHOT
+		===========
+
+=>Takescreenshot is an interface.
+
+=>getScreenShotAs() is a method.
+
+
+Steps for taking screenshot
+-----------------------------
+
+1. type the Upcasting.
+
+2.To open the Url page using "get" method.
+
+3.SYNTAX
+  ======
+	TakeScreenShot referenceName= (TakeScreenShot)driver;
+
+	(TakeScreenShot)driver-->Used to convert one interface into another.
+		|
+		|	
+		|---> TakeScreenShot interface ordered the webdriver interface to take screenshot.
+
+4.Store the screenshot in default.
+
+5.create a new screenshot folder.
+
+	SYNTAX
+	=======
+		referenceName.getScreenShotAs(OutputType.FILE);
+	CTRL+2+L
+	
+		File SourceFileName=referenceName.getScreenShotAs(OutputType.FILE);
+
+=>It is used to store the file in temperory location.
+
+	Eg:- tk.getScreenShotAs(OutputType.FILE);
+	CTRL+2+L
+
+	    File src=tk.getScreenShotAs(OutputType.FILE);
+
+	    System.out.println(src);---->To view the file stored location.
+
+6.Copy from default to new folder.
+
+	SYNTAX
+	======
+		File destination= new File("Directory name");
+		FileUtils.copyFile(sourceFileName, destination);
+
+File-->class
+FileUtils --->Class
+copyFile ---> method
+
+
+Program
+========
+package org.hcl.test;
+
+public class Facebook{
+
+	public static void main(String[]args) throws ioException{
+
+		System.setProperty("webdriver.chrome.driver","location"); ---------->To configure browser
+
+		WebDriver driver=new ChromeDriver();            ------------------>Upcasting
+
+		driver.get("https://en-gb.Facebook.com");   --------------->To configure Url
+		
+		TakeScreenShot tk=(TakeScreenShot)driver;     ------------->Take screenshot using one interface over another
+		
+		File src= tk.getScreenShotAs(OutputType.FILE);  ------------>To store temperory location
+		
+		System.out.println(src);                        ------------->To print the temperory location
+
+		File dest=new File("D://sekar//Facebook.png"); ---------------->To store permenant location 
+
+		FileUtils.copyFile(src,dest);    ------------------->copy those old file to new file and also Utils throws ioException
+	}
+}
+
+
+	
+		FRAMES
+		======
+
+=>Security purpose.
+
+=>The content should be secured in frames.
+
+
+
+DOM Syntax:
+-----------
+ 	
+	<iframe id="278" name="hgfhr3"/>
+
+Methods:
+--------
+
+1.driver.switchTo().frame(String id)
+
+2.driver.switchTo().frame(String name)
+
+3.driver.switchTo().frame(WebElement element)  -->elements like xpath.
+
+4.driver.switchTo().frame(int index)
+
+5.To switch to parent frame:
+
+	driver.switchTo().parentFrame()
+
+6.To directly move to webpage
+
+	driver.switchTo().defaultContent();
+
+
+tagName:
+---------
+=>To find the number of frames.
+
+=>Return type of tagName is List<WebElement>
+
+	Syntax
+	-------
+
+		driver.findElements(By.tagName("iframe or frameSet"));
+	Ctrl+space
+		List<WebElement> no.of.frames=driver.findElements(By.tagName("iframe or frameSet"));
+
+		System.out.println (no.of.frames.size());
+
+
+Interview Questions:
+=====================
+1.what are the tags of frames?
+
+	iframe
+	frameset
+
+2.How to find number of frames in webpage?
+
+	By using findelements method in driver interface and by using the tagname in webelement interface to find the number of frames.
+
+3.How will you move to previous frame?
+
+	using driver.switchTo().parentframe(); , we move to previous frames.
+
+4. How will you move to webpage?
+
+	Using driver.switchTo().defaultContent(); ,we move to webpage.
+
+5.when will NoSuchElementException error occur?
+
+	There is no element in DOM structure that we searched in. This results in NoSuchElementException occurs.
+
+
+		JAVA SCRIPT EXECUTOR
+		======================
+
+=> we use this javaScriptExecutor to interact with hidden elements in DOM structure.
+
+=>DOM-->Document Object Model.
+
+=>By using javaScriptExecutor,
+
+	we pass the value to the textbox.
+
+	we can able to click the button
+
+	we can able to reterive the value from the textbox.
+
+	we can able to ScrollUp/ScrollDown.
+
+
+=>javaScriptexecutor is an interface.
+
+=>For an interface we cannot create object.
+
+=>So by using upcasting  we can able to create an object.
+
+=>what is downcasting??
+
+	It is a method used to convert one reference into another reference for creating an object.
+
+=>WebDriver is an interface, 'driver' is a reference name for WebDriver interface.
+=>Using 'driver' we can convert as a 'javaScriptExecutor' for calling methods like click, scrollup, scrolldown.
+
+=>To convert a 'driver' reference into reference of 'javaScriptExecutor'
+
+	Syntax
+	=======
+
+		javaScriptExecutor js=(javaScriptExecutor) driver;
+
+js-->reference name of javaScriptExecutor.
+
+
+=>To pass the value in a script, we have one method called 'executeScript'
+
+	js.executeScript("script",args);
+
+
+script:
+---------
+1. To pass the value to the textbox
+
+	arguments[0].setAttribute('value','textbox value')
+
+	js.executeScript("arguments[0].setAttribute('value',"greens")", textUser);
+
+2.To click a button
+
+	arguments[0].click();
+
+	js.executeScript("arguments[0].click()", btnLogin);
+
+3.To view the passed value
+
+	return arguments[0].getAttribute('value')
+
+	js.executeScript("return arguments[0].getAttribute('value')",textUser);
+
+	ctrl+2+l,
+
+	object ob=js.executeScript("return arguments[0].getAttribute('value')",textUser);
+
+	string name=(String) ob;
+	System.out.println(name);
+
+	(OR)
+
+	String name=(String)js.executeScript("return arguments[0].getAttribute('value')",textUser);
+	System.out.println(name);
+
+
+=>Return type of to get the passed value is "Object".
+
+=>Object is the super class of java.
+
+4.To scrolldown the page upto particular view.
+
+	arguments[0].scrollIntoView(true)
+
+	js.executeScript("arguments[0].scrollIntoView(true)",textUser);
+
+5.To scrollup the page upto particular view
+
+	arguments[0].scrollIntoView(false)
+
+	js.executeScript("arguments[0].scrollIntoView(false), textUser);
+
+
+
+		SELECT
+		=======
+=>Select is a class.
+
+Syntax
+-------
+
+	Select referencename=new Select(WebElementReferencename);
+
+select--->class
+referencename--> Used for object creation
+
+Methods
+--------
+
+1.selectByValue() --->able to select the 'value' attribute
+
+2.selectByIndex() --->able to select the attribute using index.
+
+3.selectByVisibleText() --->able to select the attribute using text.
+
+4.getOptions() --->Used to get all the options from the dropdown.
+
+		-->Return type is List<WebElement>
+
+5.isMultiple() --->Used to find whether the options to be selected or not.
+
+6.getAllSelectedOptions() ---> Used to get the selected options
+
+7.getFirstSelectedOptions() --->Used to get the first selected options.
+
+8.deSelectAll() --->Used to deselect all the selected options.
+
+9.deSelectByValue() ---> used to deselect the selected options using value.
+
+10.deselectByIndex() --->Used to deselect the selected options using index.
+
+11.deSelectByVisibleText() ---> Used to deselect the selected options using text.
+
+
+		WINDOWS HANDLING
+		=================
+
+=>Windows handling is used to handle the windows like parent window and child windows.
+
+Syntax
+=======
+
+	driver.switchTo().window(String url)
+
+	driver.switchTo().window(String title)
+
+	driver.switchTo().window(String WindowsId) --->easy method because of static.
+
+						   --->Using windowsId we will switch the windows.
+
+Types of window
+================
+1.parent window
+2.child window/non-parent window.
+
+Condition:
+==========
+ 
+In order to switch the parent window to child window, 
+
+	parent WindowId != Child WindowId
+
+if equals, it will not switch.
+
+
+Methods:
+---------
+
+1. getWindowHandle()
+
+	=>To get a parent window Id
+
+	=>1st window open, it will take a parent alone.
+
+	=>Return type: Set
+
+2. getWindowHandles()
+
+	=>To get all windows Id.
+
+	=>It will take all windows Id.[parent Id+ child Id].
+
+	=>Return type: Set
+
+program:
+--------
+
+ WebDriver driver=new ChromeDriver();
+
+ driver.get("https://www.flipkart.com/");
+
+ WebElement name=driver.findElements(By.name("q");
+
+ name.sendKeys("iphone",keys.Enter);			//where keys is enum
+
+ Thread.sleep(3000);
+
+ WebElement apple=driver.findElement(By.xpath(""));
+
+ apple.click();
+
+ String parent=driver.getWindowHandle();
+
+ system.out.println(parent);
+
+ Set<String> all=driver.getWindowHandles();
+
+ System.out.println(all);
+
+
+//To handle single window
+--------------------------
+
+ for(String x:all){
+
+	if(!parent.equals(x)){
+
+		driver.switchTo().window(x);
+
+		}
+	}
+	WebElement addToCart=driver.findElement(By.xpath(""));
+	
+	addToCart.click();
+
+//To handle multiple window
+----------------------------
+=>Using count
+
+int count=0;
+for(String x:all){
+	if(count==1){
+		driver.switchTo().window(x);
+		}
+	count++;
+}
+
+=>We cannot get a particular value using Set. Bacause Set is a value based not index based.
+
+
+// To handle a window using List
+---------------------------------
+
+List<String> li=new ArrayList();
+li.addall(all);
+driver.switchTo().window(li.get(1));
+WebElement addToCart = driver.findElements(By.xpath(""));
+addToCart.click();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

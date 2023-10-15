@@ -1,0 +1,753 @@
+				FRAMEWORK
+				==========
+
+=>Used to reduce our time.
+=>Build this framework in "Maven".
+=>"Maven" is build management tools or dependency management tool.
+
+=>In maven, we use dependency concept.
+
+=>In selenium, we use jar file.
+		jar--->JAVA Archieve.
+
+GOAL of MAVEN
+==============
+=>Clean-->Remove the previous version file.
+
+=>Install---> Installed the current version file.
+
+=>Test--->Based on current version, it will execute.
+
+
+HOW TO DOWNLOAD MAVEN?
+=======================
+
+Step 1:[Download]
+=======
+
+Google--->type"Maven Download" & Enter-->click 1st link--->Files(heading)--->4 rows there---> click 2nd row(in link column)[Binary Zip Archieve]--->
+
+-->click on "apache maven 3.8.1.bin.zip"--->download & extract.
+
+Step 2:[Configuration with pc]
+=======
+
+Windows-->search--->type "view advanced system settings"-->click "Environmental variables"
+
+1.user variable
+
+ click "new"--->(i)variable name
+		(ii) variable value
+
+
+	I. variable name: JAVA_HOME--->variable value:C:\\program files\\java\\(before bin)--->ok
+
+	II. variable name:MAVEN_HOME--->variable value: Downloads:\\(maven files)..........\\before bin--->ok
+
+
+2.system variable
+
+ Select "path"--->click "edit"
+
+			step 1: copy the java location including bin folder and paste it in path.
+
+			step 2: give semi-colon(;) after java location.
+		
+			step 3: copy the maven location including bin folder and paste it in path.
+
+	click "ok" and again click "ok".
+
+Step 3:[Verification]
+=======
+
+windows-->search--->type"cmd"---> enter
+
+In cmd, type "java -version" and enter
+
+again type "Maven -version" and enter
+
+---------------------------------********************-----------------------------------------------*******************************-------------------------------
+
+				REPOSITARY
+				===========
+
+=>Storing the file.
+
+Types of Repositary:
+--------------------
+1.Local Repositary.
+
+2.Central Repositary.
+
+3.Remote Repositary.
+
+
+1.Local repositary:
+====================
+
+=>Present in our laptop.
+
+=>After only using maven, the .m2 file created in local repositary.
+
+=>How to create a maven project??
+----------------------------------
+
+step 1: Eclipse-->Project--->Maven folder(Expand)--->click "Maven project"
+
+step 2: In maven project, Select the dialogue box of "create a simple project" and click "next".
+
+step 3: GroupId: package name
+	ArtifactId: Class name
+	
+	click "finish".
+
+=>we work only on 
+	(i).src/test/java
+	(ii). src/test/resources
+
+=> we will not work on
+	(i).src/main/java
+	(ii). src/main/resources
+
+=>After this only .m2 file created in C:\\users\\pc-name\\.m2.
+
+----------------------------------------------************************---------------------------------------------------****************************-----------------
+
+				MAVEN DEPENDENCY
+				=================
+
+=>In maven, we never going to use jar file.
+
+=>Instead of using jar files, we use dependencies.
+
+=>We maintained or stored our dependencies in "pom.xml" file
+
+In Maven project,
+
+	Double click "pom.xml" file--->In that see the footer and click "pom.xml"
+
+		Type after </version> 
+			<dependencies> and enter, it will automatically close </dependencies>
+
+
+=>How to download Selenium dependency??
+---------------------------------------
+
+Google-->Selenium Maven Dependency--->enter---> click 1st link--->3.141.59(Selenium version)--->copy Maven program.
+
+		In Maven project, 
+
+			<dependencies> paste Maven program </dependencies>
+
+and click "CTRL+S" to save the dependency in pom file.
+
+----------------------------------************************---------------------------------------------------**********************---------------------------\
+
+		DATA DRIVEN
+		============
+
+=>Data--->piece of information.
+
+=>In Maven, we have to pass our data in 2 ways.
+
+	1.With the help of excel-->We can store our data & we can access it.
+
+	2. With the help of database-->using SQL.
+
+1.With the help of Excel:
+=========================
+
+=>We have two extension of Excel
+	(i) xls format
+	(ii) xlsx format
+
+Difference between xls and xlsx extension??
+--------------------------------------------
+		
+		xls							xlsx
+
+1.Before 2007 MS used					1.After 2007 MS used
+
+2.It contains 2^8 rows and 2^16 columns(Approx)		2.It contains 2^16 rows and 2^20 columns
+
+3.HSSFWorkbook method					3.XSSFWorkbook method
+
+
+
+=>In java, I want to interact with Excel with the help of "Dependencies"
+
+
+		JAVA----->Interact(medium)[dependency]<-----Excel
+
+Types of dependencies to interact with java
+--------------------------------------------
+
+1.Apache poi dependency
+		
+	=> It supports both .xls and .xlsx extension.
+
+2..jlx jar file
+
+	=>It support only .xls extension.
+
+
+
+  --------------------
+ | Interview question |
+ ---------------------
+		How to fetch the data dependency in Excel??
+
+		Ans: Using Apache poi dependency, we can fetch data from Excel.
+
+
+How to get Apache poi dependency??
+-----------------------------------
+
+step 1: Google--->type "apache poi ooxml dependency" and enter
+
+step 2: click 1st link
+
+step 3: Select the apache poi of "3.8-beta4"[stable version]
+
+step 4: copy maven apache dependency program
+
+step 5: In Maven project(Eclipse), 
+
+			<dependencies> paste Maven apache dependency program </dependencies>
+
+and click "CTRL+S" to save the dependency in pom file.
+
+
+=>open Excel and give data and save the file.
+=>copy excel file
+
+=>In Eclipse, Right click(project name)--->new--->create folder for excel--> paste the excel file and copy the location.
+
+
+-----------------------*************************-----------------------------------------------------***********************--------------------------------------------
+
+1. File location
+-----------------
+
+	import java.io.file;
+
+
+	File file =new File("paste the excel file location");
+
+File-->Class
+file-->reference name
+
+
+
+2.Excel data input to java input
+---------------------------------
+
+	import java.io.FileInputStream;
+	import java.io.FileNotfoundException;
+
+	throws FileNotFoundException								//in main function
+
+	FileInputStream inputStream =new FileInputStream(file);
+
+FileInputStream-->Class
+
+inputStream-->reference name
+
+file-->To be accessed file
+
+
+3.Access the excel workbook
+----------------------------
+
+	import org.apache.poi.ss.usermodel.Workbook;
+	
+	import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+
+	import java.io.IOException;
+
+
+	throws IOException								//in main function
+
+
+	Workbook book =new XSSFWorkbook(inputStream); ----->for .xlsx extension
+
+	Workbook book =new HSSFWorkbook(inputStream);------>for .xls extension
+
+
+
+Workbook --->Interface
+
+XSSFWorkbook & HSSFWorkbook --->class
+
+book --->reference name
+
+
+4. sheet
+---------
+
+1. getSheet("sheet1") ---> To access the already existing sheet
+=====================
+
+	Sheet sheet = book.getSheet("sheet1");
+
+Sheet --->Interface
+
+sheet --->reference name
+
+getSheet()--->Method
+
+sheet1 ---> existing sheet name
+
+
+2.createSheet("sheet2") --->To create a new excel sheet.
+========================
+
+	Sheet sheet =book.createSheet("sheet2");
+
+sheet --->Interface
+
+sheet --->reference name
+
+createsheet() --->Method
+
+sheet2 ---> newly created sheet name
+
+
+5.Row
+-----
+
+1.getRow(1) ---> To access the existing data present in that row
+===========
+
+	Row row = sheet.getRow(1);
+
+Row --->Interface
+
+row --->reference name
+
+getRow() --->Method
+
+1 ---> data in a row
+
+
+2.createRow() --->To create a row for accessing the data
+=============
+
+	Row row =sheet.createRow(1);
+
+Row --->Interface
+
+row --->reference name
+
+createRow ---> Method
+
+1 --->row where the new data to be accessed
+
+
+6.Cell
+-------
+
+1.getCell() --->To access the existing data present in that cell(column)
+===========
+
+	Cell cell =row.getCell(1);
+
+Cell --->Interface
+
+cell --->reference name
+
+getCell --->Method
+
+1 -->data in column
+
+2.createCell() --->To create a column for accessing the data
+==============
+
+	Cell cell = row.createCell(1);
+
+Cell --->Interface
+
+cell --->reference name
+
+createCell() --->Method
+
+1 -->column where the new data can be accessed
+
+
+7.getStringCellvalue()
+-----------------------
+=>Used to print the value present in respective rows and columns.
+
+
+	String s=cell.getStringCellValue();
+
+	System.out.println(s);
+
+String --->return type
+
+s ---> reference name
+
+getStringcellValue() --->Method
+
+
+8.getPhysicalNumberOfRows()
+----------------------------
+
+=>Used to show only physically defined row in the sheet.(i.e., consider only rows with data)
+
+		int physicalNumberOfRows =sheet.getPhysicalNumberOfRows();
+
+int --->return type
+
+physicalNumberOfRows --->reference name
+
+getPhysicalNumberOfRows() --->Method
+
+
+9.getPhysicalNumberOfCells()
+----------------------------
+
+=>Used to show only physically defined column in the sheet
+
+		int physicalNumberOfCells = row.getPhysicalNumberOfCells();
+
+
+int --->return type
+
+physicalNumberOfCells --->reference name
+
+getPhysicalNumberOfCells() --->Method
+
+
+10.setCellValue()
+-------------------
+
+=>Used to add any value in the cell
+
+		cell.setCellValue(text);
+
+setCellValue() --->Method
+
+
+11.getCellType()
+----------------
+
+=>Used to check whether the particular cell is numeric value or string.
+
+getCellType() --->Method
+
+
+		int cellType = cell.getCellType();
+
+		system.out.println(cellType);
+
+=>we used if method.
+		Eg:-
+			int cellType = cell.getCellType();
+	
+			if(cellType==1){
+				String s=cell.getStringCellValue();
+		
+				System.out.println(s);
+			}			
+
+
+	output
+	______
+		1 --> particular cell contains string value
+
+		0 -->particular cell contains numeric value
+
+
+12.getNumericCellValue()
+------------------------
+
+=>Used to check the particular cell is numeric value to be printed or not.
+
+getNumericCellValue() --->Method
+
+=>we used if..else method.
+
+		Eg:-
+		int cellType = cell.getCellType();
+	
+			if(cellType==1){
+				String s=cell.getStringCellValue();
+		
+				System.out.println(s);
+			}else{
+
+				double numericcellValue =cell.getNumericCellValue();	
+				long l= (long) numericCellValue;			//for a phone number we need to convert the double into long
+				System.out.println(l);
+				}
+
+13.To check particular cell had date or not:
+--------------------------------------------
+
+=> 0 represent a number
+
+=> A number had both date and numeric value like phone number.
+
+=> we used if..elseif..else method.
+
+		Eg:-
+		int cellType = cell.getCellType();
+	
+			if(cellType==1){
+				String s=cell.getStringCellValue();
+		
+				System.out.println(s);
+			
+			}elseif(DateUtils.isCellDateFormatted(cell)){
+
+				Date dcv =cell.getDateCellValue();
+		
+				SimpleDateFormat dateFormat = new SimpleDaateFormat("dd-MM-YYYY");
+			
+				dateformat.format(dcv);
+		
+				system.out.println(format);
+
+			}else{
+
+				double numericcellValue =cell.getNumericCellValue();	
+				long l= (long) numericCellValue;			//for a phone number we need to convert the double into long
+				System.out.println(l);
+				}
+
+14.FileOutputStream
+--------------------
+
+=>Used to save the added sheet.
+
+	FileOutputstream outputStream =new FileOutputStream(file);
+
+	book.write(outputStream);
+
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
